@@ -1,13 +1,15 @@
+#!/usr/bin/python
 """
 测试链接 https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/submissions/
 # Definition for a Node.
+"""
 class Node(object):
     def __init__(self, val=0, left=None, right=None, next=None):
         self.val = val
         self.left = left
         self.right = right
         self.next = next
-"""
+
 class Solution(object):
     def connect(self, root):
         """
@@ -48,3 +50,17 @@ class Solution(object):
             Q = nextLevelHead
 
         return root
+
+if __name__ == '__main__':
+    t = Node(3)
+    t.left = Node(9)
+    t.right = Node(8)
+
+    t.right.left = Node(6)
+    t.right.right = Node(7)
+
+    s = Solution()
+
+    result = s.connect(t)
+    print(result.right.right.val)
+    print(t.right.left.next.val)

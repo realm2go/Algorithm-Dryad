@@ -1,12 +1,13 @@
+#!/usr/bin/bash
 # 本题的测试平台链接：
 # https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 class Solution(object):
     def levelOrder(self, root):
@@ -42,8 +43,23 @@ class Solution(object):
             # 指向下一层
             cur = nextLevel
 
+            print(curResult)
             # 把当前层放到结果中
             ans.append([x for x in curResult])
         
         # 返回结果
         return ans
+
+if __name__ == '__main__':
+
+    t = TreeNode(3)
+    t.left = TreeNode(9)
+    t.right = TreeNode(8)
+
+    t.right.left = TreeNode(6)
+    t.right.right = TreeNode(7)
+
+    s = Solution()
+    result = s.levelOrder(t)
+
+    print(result)
